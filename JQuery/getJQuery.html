@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+var url = "http://zingotesting.azurewebsites.net/api/cities";
+$(document).ready(function(){
+    $("button").click(function(){
+        $.get(url, function(data, status){
+            //alert("Data: " + data + "\nStatus: " + status);
+	//console.log(data);
+	var obj = JSON.stringify(data);
+	//console.log(obj[11]);
+	//console.log(obj);
+	for(var i=0;i<data.length;i++)
+{
+	console.log(data[i].State);
+	
+}
+$('#s').append(data[1].State);
+	//console.log(obj[2]);
+	//console.log(obj[1]);
+	
+        });
+    });
+});
+
+</script>
+</head>
+<body>
+
+<button>Send an HTTP GET request to a page and get the result back</button>
+<p id="s"></p>
+</body>
+</html>
